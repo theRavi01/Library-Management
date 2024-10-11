@@ -3,15 +3,27 @@
 ## Screenshots
 
 ### Admin-Login
-![angular-16-crud-example](src/assets/img/admin-login.png)
+![admin-login](src/assets/img/admin-login.png)
 
 ### User-Login
-![Login Page](assets/img/user-login.png)
+![user-login](src/assets/img/user-login.png)
 
-### Dashboard
-![Dashboard](assets/img/dashboard.png)
+### Admin-Home
+![admin-home](src/assets/img/admin-home.png)
+
+### User-Home
+![user-home](src/assets/img/user-home.png)
+
+### Maintenance Books
+![maintenance-books](src/assets/img/maintenance-book.png)
+
+### Maintenance User
+![maintenance-user](src/assets/img/maintenance-user.png)
+
+### Maintenance add-book
+![maintenance-add-book](src/assets/img/add-book.png)
+
+### Maintenance add-user
+![maintenance-add-user](src/assets/img/add-user.png)
 
 
-## Screenshots
-
-<div><img src='../assets/img/logo.png' alt='Happy Birthday' width="385px"/></div>
