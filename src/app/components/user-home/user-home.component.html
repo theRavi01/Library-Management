@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/logo.png" alt="LibraryManagement" class="rounded-circle">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">User-Home</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <button class="btn btn-outline-danger" (click)="logout()" type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- home body -->
+<div class="container vh-90 d-flex justify-content-center align-items-center">
+<div class="row text-center w-100">
+  <!-- First box -->
+  <div class="col-md-6 mb-4">
+    <div class="p-5 border bg-danger text-dark">
+      <a class="nav-link active" aria-current="page" routerLink="/reports"><strong>Reports</strong></a>
+    </div>
+  </div>
+  <!-- Second box -->
+  <div class="col-md-6 mb-4">
+    <div class="p-5 border" style="background-color: lightgreen; color: black;">
+      <a class="nav-link active" aria-current="page" routerLink="/transations"><strong>Transations</strong></a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- product details -->
+<div class="container my-5">
+<h1 class="text-center mb-4 text-decoration-underline">Product Details</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">S.no</th>
+      <th scope="col">Code No From</th>
+      <th scope="col">Code No To</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ product.codeNoFrom }}</td>
+      <td>{{ product.codeNoTo }}</td>
+      <td>{{ product.category }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+

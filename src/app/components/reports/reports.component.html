@@ -1,0 +1,202 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/logo.png" alt="LibraryManagement" class="rounded-circle">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Admin-Home->Maintenance</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo">add-books</button>
+          <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">add-user</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New User</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="user-name" class="col-form-label">username:</label>
+            <input type="text" class="form-control" id="user-name">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="col-form-label">password:</label>
+            <input type="text" class="form-control" id="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">add-new-user</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- home body -->
+<div class="container vh-90 d-flex justify-content-center align-items-center">
+  <div class="row text-center w-100">
+    <!-- First box -->
+    <div class="col-md-4 mb-4">
+      <div class="p-5 border bg-danger text-white">
+        <a class="nav-link active" aria-current="page" routerLink="/maintenance"><strong>Books</strong></a>
+      </div>
+    </div>
+    <!-- Second box -->
+    <div class="col-md-4 mb-4">
+      <div class="p-5 border bg-warning text-dark">
+        <a class="nav-link active" aria-current="page" href="#"><strong>Users</strong></a>
+      </div>
+    </div>
+    <!-- Third box -->
+    <div class="col-md-4 mb-4">
+      <div class="p-5 border" style="background-color: lightgreen; color: black;">
+        <a class="nav-link active" aria-current="page" href="#"><strong>Memberships</strong></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- users and books details -->
+<div class="container vh-90 d-flex justify-content-center align-items-center flex-column">
+    <div *ngIf="showBookList" class="text-center w-100">
+      <h1 class="text-center mb-4 text-decoration-underline">Books List</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Author Name</th>
+            <th scope="col">Serial No</th>
+            <th scope="col">Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Book Title 1</td>
+            <td>Author 1</td>
+            <td>123456</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Book Title 2</td>
+            <td>Author 2</td>
+            <td>654321</td>
+            <td>No</td>
+          </tr>
+          <!-- Add more books as needed -->
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="showUserList" class="text-center w-100">
+      <h1 class="text-center mb-4 text-decoration-underline">Users List</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>User1</td>
+            <td>user1@example.com</td>
+            <td>Admin</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>User2</td>
+            <td>user2@example.com</td>
+            <td>User</td>
+          </tr>
+          <!-- Add more users as needed -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+<!-- add new user -->
+<div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New User</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="user-name" class="col-form-label">username:</label>
+            <input type="text" class="form-control" id="user-name">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="col-form-label">password:</label>
+            <input type="text" class="form-control" id="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">add-new-user</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div>
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Book</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="book-name" class="col-form-label">Book-Name:</label>
+              <input type="text" class="form-control" id="book-name">
+            </div>
+            <div class="mb-3">
+              <label for="author-name" class="col-form-label">Author-Name:</label>
+              <input type="text" class="form-control" id="author-name">
+            </div>
+            <div class="mb-3">
+              <label for="serial-no" class="col-form-label">Serial-No:</label>
+              <input type="text" class="form-control" id="serial-no">
+            </div>
+            <div class="mb-3">
+              <label for="available" class="col-form-label">Available:</label>
+              <input type="text" class="form-control" id="available">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">add-new-book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
