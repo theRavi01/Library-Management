@@ -3,7 +3,7 @@
 ## Screenshots
 
 ### Login Page
-![Login Page](img/logo.png)
+![Login Page](assets/img/logo.png)
 
 ### Home Page
 ![Home Page](screenshots/home-page.png)
