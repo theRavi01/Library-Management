@@ -32,4 +32,7 @@
 ### Issue-Book
 ![issue-book](src/assets/img/issue-book.png)
 
+### Pay Fine
+![issue-book](src/assets/img/pay-fine.png)
+
 
