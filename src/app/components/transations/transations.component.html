@@ -132,7 +132,7 @@
         <a
           class="nav-link active"
           aria-current="page"
-          (click)="showUsers()"
+          (click)="showPayFine()"
           routerLink="/transations"
           ><strong>Pay Fine</strong></a
         >
@@ -222,6 +222,7 @@
     </table>
   </div>
 
+<!-- issue book -->
   <div class="" *ngIf="showIssueBooks">
     <h2 class="text-center mb-4">Issue a Book</h2>
 
@@ -294,6 +295,104 @@
       </div>
     </form>
   </div>
+
+  <!-- pay fine -->
+<div class="" *ngIf="showPayFineForm">
+  <h2 class="text-center mb-4">Pay Fine</h2>
+
+  <form>
+    <!-- Book Name Dropdown -->
+    <div class="mb-3 row">
+      <label for="bookName" class="col-sm-2 col-form-label">Book Name</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="bookName"
+          placeholder="Enter Book Name"
+        />
+      </div>
+    </div>
+
+    <!-- Author Name Text Field -->
+    <div class="mb-3 row">
+      <label for="authorName" class="col-sm-2 col-form-label"
+        >Author Name</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="authorName"
+          placeholder="Enter Author Name"
+        />
+      </div>
+    </div>
+
+        <!-- Serial no Text Field -->
+    <div class="mb-3 row">
+      <label for="serial-no" class="col-sm-2 col-form-label"
+        >Serial No</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="serial-no"
+          placeholder="Enter Author Name"
+        />
+      </div>
+    </div>
+
+    <!-- Issue Date -->
+    <div class="mb-3 row">
+      <label for="issueDate" class="col-sm-2 col-form-label"
+        >Issue Date</label
+      >
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="issueDate" />
+      </div>
+    </div>
+
+    <!-- Return Date -->
+    <div class="mb-3 row">
+      <label for="returnDate" class="col-sm-2 col-form-label"
+        >Return Date</label
+      >
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="returnDate" />
+      </div>
+    </div>
+
+    <!-- actual return Date -->
+    <div class="mb-3 row">
+      <label for="actual-return-date" class="col-sm-2 col-form-label"
+        >Issue Date</label
+      >
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="actual-return-date" />
+      </div>
+    </div>
+
+    <!-- Remarks Text Field -->
+    <div class="mb-3 row">
+      <label for="remarks" class="col-sm-2 col-form-label">Remarks</label>
+      <div class="col-sm-10">
+        <textarea
+          class="form-control"
+          id="remarks"
+          rows="3"
+          placeholder="Add any remarks here..."
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Issue Book</button>
+    </div>
+  </form>
+</div>
 
   <!-- user lists -->
   <div *ngIf="showUserList" class="text-center w-100">
