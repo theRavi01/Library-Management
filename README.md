@@ -21,9 +21,9 @@
 ![maintenance-user](src/assets/img/maintenance-user.png)
 
 ### Maintenance add-book
-![maintenance-add-book](src/assets/img/add-book.png)
+![add-book](src/assets/img/add-book.png)
 
 ### Maintenance add-user
-![maintenance-add-user](src/assets/img/add-user.png)
+![add-user](src/assets/img/add-user.png)
 
 
