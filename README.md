@@ -36,6 +36,6 @@
 ![issue-book](src/assets/img/pay-fine.png)
 
 ### Report
-![issue-book](src/assets/img/report.png)
+![report](src/assets/img/reports.png)
 
 
