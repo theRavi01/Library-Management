@@ -1,14 +1,21 @@
-# Library Management
+# My Angular Project
 
 ## Screenshots
 
-### Login Page
-![Login Page](src/assets/img/login.png)
-
 ### Home Page
-![Home Page](screenshots/home-page.png)
+![Home Page](assets/img/home.png)
+
+### Login Page
+![Login Page](assets/img/logo.png)
 
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](assets/img/dashboard.png)
 
-... Add more screenshots as needed.
+
+## Screenshots
+
+<p align="center">
+  <img src="assets/img/home.png" alt="Home Page" width="300">
+  <img src="assets/img/logo.png" alt="Login Page" width="300">
+  <img src="assets/img/dashboard.png" alt="Dashboard" width="300">
+</p>
