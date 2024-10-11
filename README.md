@@ -3,7 +3,7 @@
 ## Screenshots
 
 ### Home Page
-![Home Page](src='/assets/img/logo.png')
+![angular-16-crud-example](src/assets/img/logo.png)
 
 ### Login Page
 ![Login Page](assets/img/logo.png)
