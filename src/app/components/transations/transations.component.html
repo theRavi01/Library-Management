@@ -1,92 +1,166 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="assets/img/logo.png" alt="LibraryManagement" class="rounded-circle">
+      <img
+        src="assets/img/logo.png"
+        alt="LibraryManagement"
+        class="rounded-circle"
+      />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Admin-Home->Transations</a>
+          <a class="nav-link active" aria-current="page" href="#"
+            >Admin-Home->Transations</a
+          >
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo">add-books</button>
-        <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">add-user</button>
+        <button
+          type="button"
+          class="btn btn-success mx-2"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal1"
+          data-bs-whatever="@mdo"
+        >
+          add-books
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary mx-2"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-bs-whatever="@mdo"
+        >
+          add-user
+        </button>
       </form>
     </div>
   </div>
 </nav>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title fs-5" id="exampleModalLabel">Add New User</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="mb-3">
-          <label for="user-name" class="col-form-label">username:</label>
-          <input type="text" class="form-control" id="user-name">
-        </div>
-        <div class="mb-3">
-          <label for="password" class="col-form-label">password:</label>
-          <input type="text" class="form-control" id="password">
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary">add-new-user</button>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New User</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="user-name" class="col-form-label">username:</label>
+            <input type="text" class="form-control" id="user-name" />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="col-form-label">password:</label>
+            <input type="text" class="form-control" id="password" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">add-new-user</button>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- home body -->
 <div class="container vh-90 d-flex justify-content-center align-items-center">
-<div class="row text-center w-100">
-  <!-- First box -->
-  <div class="col-md-3 mb-4">
-    <div class="p-5 border bg-success text-white">
-      <a class="nav-link active" aria-current="page" (click)="showBooks()" routerLink="/transations"><strong>Is Book Available</strong></a>
+  <div class="row text-center w-100">
+    <!-- First box -->
+    <div class="col-md-3 mb-4">
+      <div class="p-5 border bg-success text-white">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          (click)="showBooks()"
+          routerLink="/transations"
+          ><strong>Is Book Available</strong></a
+        >
+      </div>
     </div>
-  </div>
-  <!-- Second box -->
-  <div class="col-md-3 mb-4">
-    <div class="p-5 border bg-warning text-white">
-      <a class="nav-link active" aria-current="page" (click)="showUsers()" routerLink="/transations"><strong>Issue Book</strong></a>
+    <!-- Second box -->
+    <div class="col-md-3 mb-4">
+      <div class="p-5 border bg-warning text-white">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          (click)="showIssueBook()"
+          routerLink="/transations"
+          ><strong>Issue Book</strong></a
+        >
+      </div>
     </div>
-  </div>
-<!-- Third box -->
-  <div class="col-md-3 mb-4">
-    <div class="p-5 border bg-info text-white">
-      <a class="nav-link active" aria-current="page" (click)="showUsers()" routerLink="/transations"><strong>Return Book</strong></a>
+    <!-- Third box -->
+    <div class="col-md-3 mb-4">
+      <div class="p-5 border bg-info text-white">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          (click)="showUsers()"
+          routerLink="/transations"
+          ><strong>Return Book</strong></a
+        >
+      </div>
     </div>
-  </div>
-<!-- fourth box -->
-  <div class="col-md-3 mb-4">
-    <div class="p-5 border bg-danger text-white">
-      <a class="nav-link active" aria-current="page" (click)="showUsers()" routerLink="/transations"><strong>Pay Fine</strong></a>
+    <!-- fourth box -->
+    <div class="col-md-3 mb-4">
+      <div class="p-5 border bg-danger text-white">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          (click)="showUsers()"
+          routerLink="/transations"
+          ><strong>Pay Fine</strong></a
+        >
+      </div>
     </div>
   </div>
 </div>
-</div>
-
 
 <!--books list details -->
-<div class="container vh-90 d-flex justify-content-center align-items-center flex-column">
+<div
+  class="container vh-90 d-flex justify-content-center align-items-center flex-column"
+>
   <div *ngIf="showBookList" class="text-center w-100">
-    <h1 class="text-center mb-4 text-decoration-underline">Available Books List</h1>
-  
+    <h1 class="text-center mb-4 text-decoration-underline">
+      Available Books List
+    </h1>
+
     <!-- Dropdown buttons for book name and author name -->
     <div class="d-flex justify-content-center mb-4">
       <!-- Dropdown for Book Name -->
       <div class="dropdown me-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownBookName" data-bs-toggle="dropdown" aria-expanded="false">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownBookName"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           Enter Book Name
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownBookName">
@@ -96,10 +170,16 @@
           <!-- Add more book names as needed -->
         </ul>
       </div>
-  
+
       <!-- Dropdown for Author Name -->
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAuthorName" data-bs-toggle="dropdown" aria-expanded="false">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownAuthorName"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           Enter Author Name
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownAuthorName">
@@ -110,7 +190,7 @@
         </ul>
       </div>
     </div>
-  
+
     <!-- Book List Table -->
     <table class="table">
       <thead>
@@ -141,7 +221,79 @@
       </tbody>
     </table>
   </div>
-  
+
+  <div class="" *ngIf="showIssueBooks">
+    <h2 class="text-center mb-4">Issue a Book</h2>
+
+    <form>
+      <!-- Book Name Dropdown -->
+      <div class="mb-3 row">
+        <label for="bookName" class="col-sm-2 col-form-label">Book Name</label>
+        <div class="col-sm-10">
+          <select class="form-select" id="bookName">
+            <option selected>Select a Book</option>
+            <option value="1">Book Title 1</option>
+            <option value="2">Book Title 2</option>
+            <option value="3">Book Title 3</option>
+            <!-- Add more options dynamically as needed -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Author Name Text Field -->
+      <div class="mb-3 row">
+        <label for="authorName" class="col-sm-2 col-form-label"
+          >Author Name</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="authorName"
+            placeholder="Enter Author Name"
+          />
+        </div>
+      </div>
+
+      <!-- Issue Date -->
+      <div class="mb-3 row">
+        <label for="issueDate" class="col-sm-2 col-form-label"
+          >Issue Date</label
+        >
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="issueDate" />
+        </div>
+      </div>
+
+      <!-- Return Date -->
+      <div class="mb-3 row">
+        <label for="returnDate" class="col-sm-2 col-form-label"
+          >Return Date</label
+        >
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="returnDate" />
+        </div>
+      </div>
+
+      <!-- Remarks Text Field -->
+      <div class="mb-3 row">
+        <label for="remarks" class="col-sm-2 col-form-label">Remarks</label>
+        <div class="col-sm-10">
+          <textarea
+            class="form-control"
+            id="remarks"
+            rows="3"
+            placeholder="Add any remarks here..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Issue Book</button>
+      </div>
+    </form>
+  </div>
 
   <!-- user lists -->
   <div *ngIf="showUserList" class="text-center w-100">
@@ -173,68 +325,94 @@
   </div>
 </div>
 
-
 <!-- add new user -->
 <div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title fs-5" id="exampleModalLabel">Add New User</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="mb-3">
-          <label for="user-name" class="col-form-label">username:</label>
-          <input type="text" class="form-control" id="user-name">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add New User</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
-        <div class="mb-3">
-          <label for="password" class="col-form-label">password:</label>
-          <input type="text" class="form-control" id="password">
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="user-name" class="col-form-label">username:</label>
+              <input type="text" class="form-control" id="user-name" />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="col-form-label">password:</label>
+              <input type="text" class="form-control" id="password" />
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary">add-new-user</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">add-new-user</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 </div>
 
 <div>
-<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Book</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="book-name" class="col-form-label">Book-Name:</label>
-            <input type="text" class="form-control" id="book-name">
-          </div>
-          <div class="mb-3">
-            <label for="author-name" class="col-form-label">Author-Name:</label>
-            <input type="text" class="form-control" id="author-name">
-          </div>
-          <div class="mb-3">
-            <label for="serial-no" class="col-form-label">Serial-No:</label>
-            <input type="text" class="form-control" id="serial-no">
-          </div>
-          <div class="mb-3">
-            <label for="available" class="col-form-label">Available:</label>
-            <input type="text" class="form-control" id="available">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">add-new-book</button>
+  <div
+    class="modal fade"
+    id="exampleModal1"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Book</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="book-name" class="col-form-label">Book-Name:</label>
+              <input type="text" class="form-control" id="book-name" />
+            </div>
+            <div class="mb-3">
+              <label for="author-name" class="col-form-label"
+                >Author-Name:</label
+              >
+              <input type="text" class="form-control" id="author-name" />
+            </div>
+            <div class="mb-3">
+              <label for="serial-no" class="col-form-label">Serial-No:</label>
+              <input type="text" class="form-control" id="serial-no" />
+            </div>
+            <div class="mb-3">
+              <label for="available" class="col-form-label">Available:</label>
+              <input type="text" class="form-control" id="available" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">add-new-book</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
+
+<!-- issue books -->
+<div class="text-center w-100" *ngIf="showIssueBooks"></div>
