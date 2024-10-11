@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginRequest } from 'src/app/models/LoginRequest';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,36 +10,38 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  constructor(private authService:AuthService, private router: Router) {}
+
   username: string = '';
   password: string = '';
-
-  // Predefined users
-  users = [
-    { username: 'admin', password: 'admin', role: 'admin' },
-    { username: 'user', password: 'user', role: 'user' }
-  ];
-
-  constructor(private router: Router) {}
-
-  // Method to handle login
+ 
   login() {
-    // Find the user by username and password
-    const user = this.users.find(u => u.username === this.username && u.password === this.password);
+    const loginRequest: LoginRequest = {
+      username: this.username,
+      password: this.password
+    };
 
-    if (user) {
-      // If user is found, store username and role in localStorage
-      localStorage.setItem('username', user.username);
-      localStorage.setItem('role', user.role);
-
-      // Redirect based on role
-      if (user.role === 'admin') {
-        this.router.navigate(['/admin-home']);
-      } else if (user.role === 'user') {
-        this.router.navigate(['/user-home']);
+    // Only call authService.login when the user submits the form
+    this.authService.login(loginRequest).subscribe({
+      next: (response: { username: string; role: string; }) => {
+        // Handle successful login
+        console.log('Login successful:', response);
+        // Store user info in localStorage or a service if needed
+        localStorage.setItem('user',response.username);
+        localStorage.setItem('role',response.role);
+        if (!response.role) {
+          this.router.navigate(['/login']);  // Redirect to login if no role
+        } else if (response.role === 'USER') {
+          this.router.navigate(['/user-home']);  // Redirect to user home
+        } else if (response.role === 'ADMIN') {
+          this.router.navigate(['/admin-home']); // Redirect to admin home
+        }
+      },
+      error: (error) => {
+        // Handle login failure
+        console.error('Login failed:', error);
+        alert('Invalid username or password');
       }
-    } else {
-      // If login fails, show an alert
-      alert('Invalid username or password');
-    }
+    });
   }
 }

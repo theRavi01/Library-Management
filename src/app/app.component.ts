@@ -19,9 +19,9 @@ export class AppComponent {
     // Redirect based on role value
     if (!role) {
       this.router.navigate(['/login']);  // Redirect to login if no role
-    } else if (role === 'user') {
+    } else if (role === 'USER') {
       this.router.navigate(['/user-home']);  // Redirect to user home
-    } else if (role === 'admin') {
+    } else if (role === 'ADMIN') {
       this.router.navigate(['/admin-home']); // Redirect to admin home
     }
   }

@@ -9,6 +9,7 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { TransationsComponent } from './components/transations/transations.component';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import { ReportsComponent } from './components/reports/reports.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReportsComponent } from './components/reports/reports.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
