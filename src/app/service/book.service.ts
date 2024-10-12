@@ -26,7 +26,8 @@ export class BookService {
   }
 
   // Update a book by ID
-  updateBook(id: number, book: Book): Observable<Book> {
+  updateBook(id: number | undefined, book: Book): Observable<Book> {
+    console.log("sercic:",id);
     return this.http.put<Book>(`${this.apiUrl}/update/${id}`, book, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

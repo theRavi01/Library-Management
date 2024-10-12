@@ -6,13 +6,14 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { TransationsComponent } from './components/transations/transations.component';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import { ReportsComponent } from './components/reports/reports.component';
+import { AuthGuard } from './models/auth.guard';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'user-home',component:UserHomeComponent},
-  {path:'admin-home',component:AdminHomeComponent},
+  {path:'admin-home',component:AdminHomeComponent, canActivate: [AuthGuard] },
   {path:'transations',component:TransationsComponent},
-  {path:'maintenance',component:MaintenanceComponent},
+  {path:'maintenance',component:MaintenanceComponent, canActivate: [AuthGuard] },
   {path:'reports',component:ReportsComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full'} 
 ];

@@ -11,18 +11,4 @@ export class AppComponent {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    // localStorage.setItem('role','user');
-    // Check localStorage for role
-    const role = localStorage.getItem('role');
-
-    // Redirect based on role value
-    if (!role) {
-      this.router.navigate(['/login']);  // Redirect to login if no role
-    } else if (role === 'USER') {
-      this.router.navigate(['/user-home']);  // Redirect to user home
-    } else if (role === 'ADMIN') {
-      this.router.navigate(['/admin-home']); // Redirect to admin home
-    }
-  }
 }

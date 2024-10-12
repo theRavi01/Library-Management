@@ -5,6 +5,8 @@ import { LoginResponse } from 'src/app/models/LoginResponse';
 import { RegisterRequest } from 'src/app/models/RegisterRequest';
 import { AuthService } from 'src/app/service/auth.service';
 import { BookService } from 'src/app/service/book.service';
+import { Location } from '@angular/common';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-maintenance',
@@ -13,62 +15,50 @@ import { BookService } from 'src/app/service/book.service';
 })
 export class MaintenanceComponent implements OnInit {
 
-  constructor(private authService: AuthService,
+  books: Book[] = [];
+  users: User[] = [];
+  selectedBook: Book | null = null; 
+
+  newBook: Book = {
+    bookName: '',category:'', authorName: '', available: true
+  };
+
+  newUser: User = {
+    username: '', password: '', role: ''
+  };
+
+  // Flags to show/hide sections
+  showBookList: boolean = true;
+  showUserList: boolean = false;
+
+  allusers: LoginResponse[] = [];
+category: any;
+
+
+  constructor(private authService: AuthService, private location: Location,
     private bookService: BookService, private router: Router) {}
 
-    ngOnInit(): void {
-      this.fetchUsers();
-      this.getBooks();
-    }
-
-    books: Book[] = [];
-    newBook: Book = {
-      bookName: '', authorName: '', available: true};
-
-  showBookList: boolean = true; // hide the books list
-  showUserList: boolean = false;  //hide the users list
-
-  users: LoginResponse[] = [];
+  ngOnInit(): void {
+    this.getBooks();
+  }
 
   showBooks() {
-    this.showBookList = true;      // Show books list
-    this.showUserList = false;     // Hide users list
+    this.showBookList = true;
+    this.showUserList = false;
   }
 
   showUsers() {
-    this.showUserList = true;      // Show users list
-    this.showBookList = false;     // Hide books list
+    this.showUserList = true;
+    this.showBookList = false;
+    this.fetchUsers();
   }
 
-  username: string = '';
-  password: string = '';
-  role: string = 'USER'; // Default role is 'USER'
-
-  addNewUser() {
-    const registerRequest: RegisterRequest = {
-      username: this.username,
-      password: this.password,
-      role: this.role
-    };
-
-    this.authService.register(registerRequest).subscribe({
-      next: (response) => {
-        console.log('User added successfully:', response);
-        alert('New user registered successfully!');
-        this.router.navigate(['/home']); // Redirect to another page if needed
-      },
-      error: (error) => {
-        console.error('Error registering user:', error);
-        alert('Failed to register new user: ' + error.error);
-      }
-    });
-  }
-
+  // Fetch users from backend
   fetchUsers() {
     this.authService.getAllUsers().subscribe({
-      next: (response) => {
-        this.users = response;
-        console.log('Users fetched successfully', response);
+      next: (allusers) => {
+        this.allusers = allusers;
+        console.log('Users fetched successfully', allusers);
       },
       error: (error) => {
         console.error('Error fetching users', error);
@@ -76,8 +66,7 @@ export class MaintenanceComponent implements OnInit {
     });
   }
 
-
-  // Get all books from the API
+  // Fetch all books from backend
   getBooks(): void {
     this.bookService.getAllBooks().subscribe({
       next: (books) => {
@@ -89,27 +78,71 @@ export class MaintenanceComponent implements OnInit {
     });
   }
 
-  // Add a new book
-  addBook(): void {
-    this.bookService.createBook(this.newBook).subscribe({
-      next: (book) => {
-        this.books.push(book); // Add the new book to the list
-        this.newBook = { bookName: '', authorName: '', available: true }; // Reset the form
-      },
-      error: (err) => {
-        console.error('Error adding book', err);
-      }
-    });
-  }
+
 
   // Delete a book
   deleteBook(id: number): void {
-    this.bookService.deleteBook(id).subscribe({
-      next: () => {
-        this.books = this.books.filter(book => book.id !== id); // Remove the deleted book from the list
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.bookService.deleteBook(id).subscribe({
+        next: () => {
+          this.router.navigate(['/maintenance']);
+          this.books = this.books.filter(book => book.id !== id); // Remove the deleted book from the list
+        },
+        error: (err) => {
+          console.error('Error deleting book', err);
+        }
+      });
+    }
+  }
+
+  // Select a book for update and open the modal
+  selectBookForUpdate(book: Book): void {
+    this.selectedBook = { ...book }; // Create a copy of the book to avoid updating the array directly
+  }
+
+  // Update the selected book
+  updateBook(): void {
+    if (this.selectedBook?.id) {
+      this.bookService.updateBook(this.selectedBook.id, this.selectedBook).subscribe({
+        next: (updatedBook: Book) => {
+          const index = this.books.findIndex(b => b.id === updatedBook.id);
+          if (index !== -1) {
+            this.books[index] = updatedBook; // Update the book in the list
+          }
+          this.selectedBook = null; // Clear the selected book after update
+          alert('Book updated successfully');
+        },
+        error: (error: any) => {
+          console.error('Error updating book:', error);
+        }
+      });
+    }
+  }
+
+    // Add a new book
+    addBook(): void {
+      this.bookService.createBook(this.newBook).subscribe({
+        next: (book) => {
+          this.books.push(book); // Add the new book to the list
+          this.newBook = { bookName: '',category:'', authorName: '', available: true }; // Reset the form
+        },
+        error: (err) => {
+          console.error('Error adding book', err);
+        }
+      });
+    }
+
+  addNewUser() {
+
+    this.authService.register(this.newUser).subscribe({
+      next: (user) => {
+        this.users.push(user);
+        this.newUser = {username:'', password:'', role:''}
+        console.log('User added successfully:', user);
       },
-      error: (err) => {
-        console.error('Error deleting book', err);
+      error: (error) => { 
+        console.error('Error adding book', error);
+        alert('Failed to register new user: ' + error.error);
       }
     });
   }
