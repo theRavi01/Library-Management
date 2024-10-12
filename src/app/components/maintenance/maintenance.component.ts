@@ -33,6 +33,7 @@ export class MaintenanceComponent implements OnInit {
 
   allusers: LoginResponse[] = [];
 category: any;
+selectedUser: any;
 
 
   constructor(private authService: AuthService, private location: Location,
@@ -40,6 +41,7 @@ category: any;
 
   ngOnInit(): void {
     this.getBooks();
+    this.fetchUsers();
   }
 
   showBooks() {
@@ -124,26 +126,26 @@ category: any;
       this.bookService.createBook(this.newBook).subscribe({
         next: (book) => {
           this.books.push(book); // Add the new book to the list
-          this.newBook = { bookName: '',category:'', authorName: '', available: true }; // Reset the form
+          this.newBook = { bookName: '',category:'', authorName: '', available: true }; 
         },
         error: (err) => {
           console.error('Error adding book', err);
+          alert('Failed to register new book: ' + err.error);
         }
       });
     }
 
-  addNewUser() {
-
-    this.authService.register(this.newUser).subscribe({
-      next: (user) => {
-        this.users.push(user);
-        this.newUser = {username:'', password:'', role:''}
-        console.log('User added successfully:', user);
-      },
-      error: (error) => { 
-        console.error('Error adding book', error);
-        alert('Failed to register new user: ' + error.error);
-      }
-    });
-  }
+    addNewUser() {
+      this.authService.register(this.newUser).subscribe({
+        next: (user) => {
+          this.users.push(user);
+          this.newUser = {username:'',password:'',role:'' }
+        },
+        error: (error) => {
+          console.error('Error registering user:', error);
+          alert('Failed to register new user: ' + error.error);
+        }
+      });
+    }
+    
 }
